@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Smazat opakující se úkol')
-
-@section('header', 'Smazat opakující se úkol')
-
-@section('content')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Smazat opakující se ukol') }}
+        </h2>
+    </x-slot>
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
         <div class="px-4 py-5 sm:p-6">
             <div class="sm:flex sm:items-start">
@@ -83,4 +83,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>

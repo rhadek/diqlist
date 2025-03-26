@@ -1,12 +1,11 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Denní plán')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('$formattedDate') }}
+        </h2>
+    </x-slot>
 
-@section('header')
-    Denní plán: {{ $formattedDate }}
-@endsection
-
-@section('actions')
     <div class="flex space-x-2">
         <a href="{{ route('daily.index', ['date' => $previousDay->toDateString()]) }}" class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             <svg class="-ml-1 mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -36,9 +35,6 @@
             Kalendář
         </a>
     </div>
-@endsection
-
-@section('content')
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Levý sloupec - Přehled dne -->
         <div class="md:col-span-1">
@@ -359,4 +355,4 @@
             @endif
         </div>
     </div>
-@endsection
+</x-app-layout>

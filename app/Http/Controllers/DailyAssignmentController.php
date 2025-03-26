@@ -79,7 +79,6 @@ class DailyAssignmentController extends Controller
 
         // Zkontrolujeme, zda je to uživatelův úkol
         $task = Task::findOrFail($validated['task_id']);
-        $this->authorize('update', $task);
 
         // Zkontrolujeme, zda již není úkol přiřazen k danému dni
         $existingAssignment = DailyAssignment::where('task_id', $task->id)
@@ -109,7 +108,6 @@ class DailyAssignmentController extends Controller
      */
     public function unassign(DailyAssignment $assignment)
     {
-        $this->authorize('delete', $assignment);
 
         // Úkol je možné odebrat pouze pokud je ve stavu 'pending'
         if ($assignment->status !== 'pending') {
@@ -128,7 +126,6 @@ class DailyAssignmentController extends Controller
      */
     public function complete(DailyAssignment $assignment)
     {
-        $this->authorize('update', $assignment);
 
         // Úkol je možné označit jako splněný pouze pokud je ve stavu 'pending'
         if ($assignment->status !== 'pending') {
@@ -147,7 +144,6 @@ class DailyAssignmentController extends Controller
      */
     public function fail(DailyAssignment $assignment)
     {
-        $this->authorize('update', $assignment);
 
         // Úkol je možné označit jako nesplněný pouze pokud je ve stavu 'pending'
         if ($assignment->status !== 'pending') {

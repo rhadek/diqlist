@@ -1,10 +1,11 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Upravit kategorii') }}
+        </h2>
+    </x-slot>
 
-@section('title', 'Upravit kategorii')
 
-@section('header', 'Upravit kategorii')
-
-@section('content')
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
         <form action="{{ route('categories.update', $category) }}" method="POST">
             @csrf
@@ -108,4 +109,4 @@
             }
         });
     </script>
-@endsection
+</x-app-layout>

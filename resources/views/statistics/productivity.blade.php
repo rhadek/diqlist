@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Statistiky produktivity')
-
-@section('header', 'Statistiky produktivity')
-
-@section('actions')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Statistiky produktivity') }}
+        </h2>
+    </x-slot>
     <div class="flex space-x-2">
         <a href="{{ route('stats') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -20,9 +20,7 @@
             Statistiky kategorií
         </a>
     </div>
-@endsection
 
-@section('content')
     <!-- Produktivita po měsících -->
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden mb-6">
         <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-700">
@@ -359,4 +357,4 @@
             });
         });
     </script>
-@endsection
+</x-app-layout>

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Statistiky')
-
-@section('header', 'Statistiky')
-
-@section('actions')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Statistiky') }}
+        </h2>
+    </x-slot>
     <div class="flex space-x-2">
         <a href="{{ route('stats.productivity') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -27,9 +27,7 @@
             Bodový vývoj
         </a>
     </div>
-@endsection
 
-@section('content')
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <!-- Celkové statistiky -->
         <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
@@ -241,4 +239,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>

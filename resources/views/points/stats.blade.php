@@ -1,19 +1,20 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Statistiky bodů')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Statistiky bodů') }}
+        </h2>
+    </x-slot>
 
-@section('header', 'Statistiky bodů')
 
-@section('actions')
     <a href="{{ route('points.index') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
         <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
         </svg>
         Zpět na historii bodů
     </a>
-@endsection
 
-@section('content')
+
     <!-- Přehled a filtry -->
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden mb-6">
         <div class="px-4 py-5 sm:p-6">
@@ -321,4 +322,4 @@
             });
         });
     </script>
-@endsection
+</x-app-layout>

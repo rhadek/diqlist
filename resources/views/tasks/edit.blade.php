@@ -1,10 +1,9 @@
-@extends('layouts.app')
-
-@section('title', 'Upravit úkol')
-
-@section('header', 'Upravit úkol')
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Upravit ukol') }}
+        </h2>
+    </x-slot>
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
         <form action="{{ route('tasks.update', $task) }}" method="POST">
             @csrf
@@ -188,4 +187,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-app-layout>

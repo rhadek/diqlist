@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Historie bodů')
-
-@section('header', 'Historie bodů')
-
-@section('actions')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Historie bodů') }}
+        </h2>
+    </x-slot>
     <div class="flex space-x-2">
         <a href="{{ route('points.create') }}" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -20,9 +20,7 @@
             Statistiky
         </a>
     </div>
-@endsection
 
-@section('content')
     <!-- Přehled a filtry -->
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden mb-6">
         <div class="px-4 py-5 sm:p-6">
@@ -191,4 +189,4 @@
             </div>
         @endif
     </div>
-@endsection
+</x-app-layout>

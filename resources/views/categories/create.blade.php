@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('title', 'Nová kategorie')
-
-@section('header', 'Nová kategorie')
-
-@section('content')
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Nová Kategorie') }}
+        </h2>
+    </x-slot>
     <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
         <form action="{{ route('categories.store') }}" method="POST">
             @csrf
@@ -86,4 +86,4 @@
             }
         });
     </script>
-@endsection
+</x-app-layout>

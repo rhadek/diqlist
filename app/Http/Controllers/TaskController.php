@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class TaskController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Zobrazí seznam všech úkolů.
      */
@@ -132,8 +135,6 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        $this->authorize('view', $task);
-
         return view('tasks.show', compact('task'));
     }
 
@@ -142,7 +143,6 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $this->authorize('update', $task);
 
         $user = Auth::user();
         $categories = Category::where('user_id', $user->id)->get();
@@ -155,7 +155,6 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        $this->authorize('update', $task);
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -195,7 +194,6 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        $this->authorize('delete', $task);
 
         // Pokud je to rodičovský opakující se úkol, ověříme, zda chceme smazat i dceřiné úkoly
         if ($task->is_recurring_parent && $task->childTasks()->count() > 0) {
@@ -213,7 +211,6 @@ class TaskController extends Controller
      */
     public function confirmDelete(Task $task)
     {
-        $this->authorize('delete', $task);
 
         if (!$task->is_recurring_parent || $task->childTasks()->count() === 0) {
             return redirect()->route('tasks.destroy', $task);
@@ -227,7 +224,6 @@ class TaskController extends Controller
      */
     public function deleteRecurring(Request $request, Task $task)
     {
-        $this->authorize('delete', $task);
 
         $deleteChildren = $request->input('delete_children', false);
 
@@ -247,7 +243,6 @@ class TaskController extends Controller
      */
     public function complete(Task $task)
     {
-        $this->authorize('update', $task);
 
         $task->complete();
 
@@ -260,7 +255,6 @@ class TaskController extends Controller
      */
     public function fail(Task $task)
     {
-        $this->authorize('update', $task);
 
         $task->fail();
 
@@ -275,7 +269,6 @@ class TaskController extends Controller
      */
     public function assignToday(Task $task)
     {
-        $this->authorize('update', $task);
 
         if ($task->isAssignedToday()) {
             return redirect()->back()
