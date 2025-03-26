@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // First create the table with basic columns
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -19,6 +20,10 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+        });
+
+        // Then alter the table to add the additional columns in specific positions
+        Schema::table('users', function (Blueprint $table) {
             $table->integer('points_balance')->default(0)->after('password');
             $table->timestamp('last_activity_date')->nullable()->after('points_balance');
             $table->integer('streak')->default(0)->after('last_activity_date');

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Anti-Prokrastinator') }}</title>
+    <title>{{ config('app.name', 'DiqList') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,7 +22,7 @@
                 <div class="flex justify-between h-16">
                     <div class="flex">
                         <div class="flex-shrink-0 flex items-center">
-                            <span class="text-blue-600 dark:text-blue-500 font-bold text-2xl">Anti-Prokrastinátor</span>
+                            <span class="text-blue-600 dark:text-blue-500 font-bold text-2xl">DiqList</span>
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -201,7 +201,7 @@
                         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
                             <div class="px-6 py-8 sm:p-10">
                                 <div>
-                                    <h3 class="text-lg font-medium text-gray-900 dark:text-white">Proč používat Anti-Prokrastinátor?</h3>
+                                    <h3 class="text-lg font-medium text-gray-900 dark:text-white">Proč používat DiqList?</h3>
                                     <ul class="mt-6 space-y-4">
                                         <li class="flex items-start">
                                             <div class="flex-shrink-0">
@@ -269,7 +269,7 @@
                         </a>
                     </div>
                     <p class="mt-8 text-base text-gray-500 dark:text-gray-400 md:mt-0 md:order-1">
-                        &copy; {{ date('Y') }} Anti-Prokrastinátor. Všechna práva vyhrazena.
+                        &copy; {{ date('Y') }} DiqList. Všechna práva vyhrazena.
                     </p>
                 </div>
             </div>
